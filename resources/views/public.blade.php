@@ -4,7 +4,7 @@
 <!-- Mirrored from themes.3rdwavemedia.com/devcard/bs4/2.0/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2019 19:28:48 GMT -->
 
 <head>
-	<title>DevCard - Bootstrap 4 vCard &amp; Portfolio Template For Developers</title>
+	<title>Mostafiz Rahman</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
