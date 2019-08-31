@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', 'publicController@index')->name('public.about');
-Route::get('/portfolio', 'publicController@portfolio')->name('public.portfolio');
-Route::get('/services', 'publicController@services')->name('public.services');
-Route::get('/resume', 'publicController@resume')->name('public.resume');
-Route::get('/blog', 'publicController@blog')->name('public.blog');
-Route::get('/contact', 'publicController@contact')->name('public.contact');
-Route::get('/hire-me', 'publicController@hire')->name('public.hire');
-Route::get('/article', 'publicController@article')->name('public.article');
-Route::get('/project', 'publicController@project')->name('public.project');
+Route::get('/', 'PublicController@index')->name('public.about');
+Route::get('/portfolio', 'PublicController@portfolio')->name('public.portfolio');
+Route::get('/services', 'PublicController@services')->name('public.services');
+Route::get('/resume', 'PublicController@resume')->name('public.resume');
+Route::get('/blog', 'PublicController@blog')->name('public.blog');
+Route::get('/contact', 'PublicController@contact')->name('public.contact');
+Route::get('/hire-me', 'PublicController@hire')->name('public.hire');
+Route::get('/article', 'PublicController@article')->name('public.article');
+Route::get('/project', 'PublicController@project')->name('public.project');
