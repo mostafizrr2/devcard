@@ -20,3 +20,23 @@ Route::get('/contact', 'PublicController@contact')->name('public.contact');
 Route::get('/hire-me', 'PublicController@hire')->name('public.hire');
 Route::get('/article', 'PublicController@article')->name('public.article');
 Route::get('/project', 'PublicController@project')->name('public.project');
+
+
+
+//Admin Auth
+Route::group(
+    [
+        'prefix' => 'manage',
+        'namespace' => 'Admin'
+    ], 
+function(){
+    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/profile', 'AdminController@profile')->name('admin.profile');
+    Route::post('/profile', 'AdminController@saveProfile')->name('admin.profile');
+
+    //Resources
+    Route::resource('/works', 'WorkController');
+    Route::resource('/testimonial', 'TestimonialController');
+    Route::resource('/portfolio', 'PortfolioController');
+
+});

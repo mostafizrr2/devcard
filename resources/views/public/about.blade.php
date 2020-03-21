@@ -1,4 +1,8 @@
 @extends('public')
+
+
+@section('title', 'About Me')
+
 @section('content')
 
 <section class="about-me-section p-3 p-lg-5 theme-bg-light">
@@ -6,13 +10,10 @@
         <div class="profile-teaser media flex-column flex-lg-row">
 
             <div class="media-body">
-                <h2 class="name font-weight-bold mb-1">Mostafiz Rahman</h2>
-                <div class="tagline mb-3">Senior Software Engineer</div>
-                <div class="bio mb-4">I'm a software engineer specialised in frontend and backend development
-                    for complex scalable web apps. I write about software development on <a class="link-on-bg"
-                        href="blog-home.html">my blog</a>. Want to know how I may help your project? Check out
-                    my project <a class="link-on-bg" href="projects.html">portfolio</a> and <a
-                        class="link-on-bg" href="resume.html">online resume</a>.
+                <h2 class="name font-weight-bold mb-1">{{ $profile->my_name }}</h2>
+                <div class="tagline mb-3">{{ $profile->my_title }}</div>
+                <div class="bio mb-4">
+                    {{ $profile->my_brief_description }}
                 </div>
                 <!--//bio-->
                 <div class="mb-4">
@@ -27,7 +28,7 @@
             </div>
             <!--//media-body-->
             <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0"
-             src="https://scontent.fcgp5-1.fna.fbcdn.net/v/t1.0-9/49517097_528957870955745_980209088539394048_n.jpg?_nc_cat=102&_nc_oc=AQmHBxLCxl8tmcqJWvNCw1yl3720gWzrRressDdSV_QxnyXoRSKn7EkaMoLqBpNEKqs&_nc_ht=scontent.fcgp5-1.fna&oh=9b3aa47db0e9552e9a96b3f1021658c8&oe=5E096BE7" alt="">
+            src="{{ url('storage/about_image', $profile->my_about_image) }}" alt="{{ $profile->my_name }}">
         </div>
     </div>
 </section>
@@ -35,113 +36,29 @@
 
 <section class="overview-section p-3 p-lg-5">
     <div class="container">
-        <h2 class="section-title font-weight-bold mb-3">What I do</h2>
-        <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all
-            over the world. Below is a quick overview of my main technical skill sets and technologies I use.
-            Want to find out more about my experience? Check out my <a href="resume.html">online resume</a> and
-            <a href="portfolio.html">project portfolio</a>.</div>
+        <h2 class="section-title font-weight-bold mb-3">{{ $profile->my_working_title }}</h2>
+        <div class="section-intro mb-5">
+            {{ $profile->my_working_description }}
+        </div>
         <div class="row">
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-js-square"></i></div>
-                    <h3 class="item-title">Vanilla JavaScript</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor.</div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-angular mr-2"></i><i
-                            class="fab fa-react mr-2"></i><i class="fab fa-vuejs"></i></div>
-                    <h3 class="item-title">Angular, React &amp; Vue</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
 
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-node-js"></i></div>
-                    <h3 class="item-title">Node.js</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
-
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-python"></i></div>
-                    <h3 class="item-title">Python &amp; Django</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-php"></i></div>
-                    <h3 class="item-title">PHP</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-npm mr-2"></i><i class="fab fa-gulp mr-2"></i><i
-                            class="fab fa-grunt"></i></div>
-                    <h3 class="item-title">npm, Gulp &amp; Grunt</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-html5 mr-2"></i><i class="fab fa-css3-alt"></i>
+            @foreach ($works as $item)
+                <div class="item col-6 col-lg-3">
+                    <div class="item-inner text-center">
+                        <div class="item-icon">
+                            <img src="{{ url('storage/work', $item->image) }}" alt="{{ $item->title }}">
+                        </div>
+                        <h3 class="item-title">{{ $item->title }}</h3>
+                        <div class="item-desc">
+                            {{ $item->description }}
+                        </div>
                     </div>
-                    <h3 class="item-title">HTML &amp; CSS</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
+                    <!--//item-inner-->
                 </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
-            <div class="item col-6 col-lg-3">
-                <div class="item-inner">
-                    <div class="item-icon"><i class="fab fa-sass mr-2"></i><i class="fab fa-less"></i></div>
-                    <h3 class="item-title">Sass &amp; LESS</h3>
-                    <div class="item-desc">List skills/technologies here. You can change the icon above to any
-                        of the 1500+ <a class="theme-link" href="https://fontawesome.com/"
-                            target="_blank">FontAwesome 5 free icons</a> available. Aenean commodo ligula eget
-                        dolor. </div>
-                </div>
-                <!--//item-inner-->
-            </div>
-            <!--//item-->
+                <!--//item-->
+            @endforeach
+
+
         </div>
         <!--//row-->
         <div class="text-center py-3">
@@ -164,132 +81,31 @@
         <h2 class="section-title font-weight-bold mb-5">Testimonials</h2>
         <div class="testimonial-carousel owl-carousel owl-theme">
 
+            @foreach ($testimonials as $item)
             <div class="item">
                 <div class="quote-holder">
                     <blockquote class="quote-content">
-                        Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer
-                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                        penatibus et magnis.
+                        {{ $item->client_message }}
                     </blockquote>
                     <i class="fas fa-quote-left"></i>
                 </div>
                 <!--//quote-holder-->
                 <div class="source-holder">
                     <div class="source-profile">
-                        <img src="devcard/assets/images/clients/profile-1.png" alt="image" />
+                        <img class="img" style="border-radius:50%" src="{{ url('storage/testimonial', $item->client_image) }}" alt="image" />
                     </div>
-                    <div class="meta">
-                        <div class="name">Brandon James</div>
-                        <div class="info">Project Manager, Google</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="quote-holder">
-                    <blockquote class="quote-content">
-                        Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer
-                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                        penatibus et magnis.
-                    </blockquote>
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <!--//quote-holder-->
-                <div class="source-holder">
-                    <div class="source-profile">
-                        <img src="devcard/assets/images/clients/profile-2.png" alt="image" />
-                    </div>
-                    <div class="meta">
-                        <div class="name">Kate Sanders</div>
-                        <div class="info">Project Manager, Uber</div>
+                    <div class="meta pt-0">
+                        <div class="name">{{ $item->client_name }}</div>
+                        <div class="info">{{ $item->client_title }}</div>
+                        <div class="info">
+                            <a target="_blank" href="{{ ($item->client_url != null) ? $item->client_url : '#' }}">
+                                {{ $item->client_company }}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="item">
-                <div class="quote-holder">
-                    <blockquote class="quote-content">
-                        Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer
-                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                        penatibus et magnis.
-                    </blockquote>
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <!--//quote-holder-->
-                <div class="source-holder">
-                    <div class="source-profile">
-                        <img src="devcard/assets/images/clients/profile-3.png" alt="image" />
-                    </div>
-                    <div class="meta">
-                        <div class="name">James Lee</div>
-                        <div class="info">Product Manager, Amazon</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="quote-holder">
-                    <blockquote class="quote-content">
-                        Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer
-                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                        penatibus et magnis.
-                    </blockquote>
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <!--//quote-holder-->
-                <div class="source-holder">
-                    <div class="source-profile">
-                        <img src="devcard/assets/images/clients/profile-4.png" alt="image" />
-                    </div>
-                    <div class="meta">
-                        <div class="name">James Lee</div>
-                        <div class="info">Product Manager, Amazon</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="quote-holder">
-                    <blockquote class="quote-content">
-                        Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer
-                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                        penatibus et magnis.
-                    </blockquote>
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <!--//quote-holder-->
-                <div class="source-holder">
-                    <div class="source-profile">
-                        <img src="devcard/assets/images/clients/profile-5.png" alt="image" />
-                    </div>
-                    <div class="meta">
-                        <div class="name">Olivia White</div>
-                        <div class="info">Product Manager, Dropbox</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="quote-holder">
-                    <blockquote class="quote-content">
-                        Simon is a brilliant software engineer! Lorem ipsum dolor sit amet, consectetuer
-                        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                        penatibus et magnis.
-                    </blockquote>
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <!--//quote-holder-->
-                <div class="source-holder">
-                    <div class="source-profile">
-                        <img src="devcard/assets/images/clients/profile-6.png" alt="image" />
-                    </div>
-                    <div class="meta">
-                        <div class="name">Samuel Reyes</div>
-                        <div class="info">CTO, StartupHub</div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
         <!--//testimonial-carousel-->
     </div>

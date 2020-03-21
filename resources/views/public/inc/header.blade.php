@@ -1,7 +1,7 @@
 <header class="header text-center">
     <div class="force-overflow">
         <h1 class="blog-name pt-lg-4 mb-0">
-            <a href="{{ route('public.about') }}">Mostafiz Rahman</a>
+            <a href="{{ route('public.about') }}">{{ $profile->my_name }}</a>
         </h1>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -14,11 +14,19 @@
             <div id="navigation" class="collapse navbar-collapse flex-column">
                 <div class="profile-section pt-3 pt-lg-0">
                     <img class="profile-image mb-3 rounded-circle mx-auto"
-                     src="https://scontent.fcgp5-1.fna.fbcdn.net/v/t1.0-9/37397539_423095721541961_1038679205644075008_n.jpg?_nc_cat=102&_nc_oc=AQlaHEjtbHtumUP0HXk0JXM4RcZ7NxWanVpJ7rK7ZsTQUGmsMkH1_ssjS1ZyahGFLao&_nc_ht=scontent.fcgp5-1.fna&oh=31d266f3044776f18984803230121641&oe=5DCABFC9" alt="image">
+                     src="{{ url('images/me1.jpg') }}" alt="image">
 
-                    <div class="bio mb-3">
-                        Hi, my name is Mostafiz Rahman and I'm a senior software engineer. Welcome to my
-                        personal website!
+                    <div class="bio text-center mb-3">
+
+                        <p class="mb-2">
+                            <i class="fa fa-phone mr-2"></i> {{ $profile->my_primary_phone }}
+                        </p>
+                        <p class="mb-2">
+                            <i class="fa fa-envelope mr-2"></i> {{ $profile->my_primary_email }}
+                        </p>
+                        <p class="mb-2">
+                            <i class="fa fa-location-arrow mr-2"></i> {{ $profile->my_street_address }}
+                        </p>
                     </div>
                     <!--//bio-->
                     <ul class="social-list list-inline py-2 mx-auto">

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Work;
+use App\Profile;
+use App\Testimonial;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -9,7 +12,10 @@ class PublicController extends Controller
 
     public function index()
     {
-        return view('public.about');
+        $data['works'] = Work::where('status', true)->get();
+        $data['testimonials'] = Testimonial::where('status', true)->latest()->get();
+        
+        return view('public.about',$data);
     }
 
     public function portfolio()
