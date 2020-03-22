@@ -53,7 +53,7 @@
                                     <tr>
                                         <td>{{ $key + 1  }}</td>
                                         <td>
-                                            <img src="{{ url('storage/portfolio', $item->project_image) }}" alt="">
+                                            <img width="70px" src="{{ url('storage/portfolio', $item->project_image) }}" alt="">
                                         </td>
                                         <td>{{ $item->project_name  }}</td>
                                         <td>{{ $item->project_url  }}</td>
@@ -61,7 +61,7 @@
                                         <td>{{ ($item->status == true) ? "Published" : "Unpublished"}}</td>
                                        
                                         <td>
-                                            <a href="#" class="btn btn-info btn-sm">Edit</a>
+                                            <a href="{{ route('portfolio.edit', $item->id) }}" class="btn btn-info btn-sm">Edit</a>
                                             <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-{{ $item->id }}">Delete</a>
                                         </td>
 

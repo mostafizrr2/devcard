@@ -26,198 +26,44 @@
         </div>
         
         <div class="project-cards row isotope">
-            <div class="isotope-item col-md-6 mb-5 mobileapp frontend">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-1.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Project intro lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                                <p class="card-text"><small class="text-muted">Client: Google</small></p>
+
+            @foreach ($portfolios as $item)
+                <div class="isotope-item col-md-6 mb-5 mobileapp frontend">
+                    <div class="card project-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4 card-img-holder">
+                                <img src="{{ url('storage/portfolio', $item->project_image) }}" class="card-img" alt="{{ $item->project_name }}">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('public.project', $item->slug) }}" class="theme-link">
+                                            {{ $item->project_name }}
+                                        </a>
+                                    </h5>
+                                    <p class="card-text">
+                                        {{ $item->project_intro }}
+                                    </p>
+                                    <p class="card-text"><small class="text-muted">Client: {{ $item->client_name}}</small></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 webapp frontend">	
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-2.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: Dropbox</small></p>
+                        <div class="link-mask">
+                            <a class="link-mask-link" href="{{ route('public.project', $item->slug) }}"></a>
+                            <div class="link-mask-text">
+                                <a class="btn btn-secondary" href="{{ route('public.project', $item->slug) }}">
+                                    <i class="fas fa-eye mr-2"></i>View Case Study
+                                </a>
                             </div>
                         </div>
+                        <!--//link-mask-->
                     </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 mobileapp">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-3.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: Google</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 webapp backend">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-4.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: Startup Hub</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 mobileapp frontend">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-5.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: SalesForce</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 webapp backend">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-6.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: Uber</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 webapp frontend backend">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-7.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: Lyft</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
-            <div class="isotope-item col-md-6 mb-5 webapp frontend">
-                <div class="card project-card">
-                    <div class="row no-gutters">
-                        <div class="col-lg-4 card-img-holder">
-                            <img src="devcard/assets/images/project/project-8.jpg" class="card-img" alt="image">
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="{{ route('public.project') }}" class="theme-link">Project Heading</a></h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                                <p class="card-text"><small class="text-muted">Client: GitLab</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="link-mask">
-                        <a class="link-mask-link" href="{{ route('public.project') }}"></a>
-                        <div class="link-mask-text">
-                            <a class="btn btn-secondary" href="{{ route('public.project') }}">
-                                <i class="fas fa-eye mr-2"></i>View Case Study
-                            </a>
-                        </div>
-                    </div><!--//link-mask-->
-                </div><!--//card-->
-            </div><!--//col-->
+                    <!--//card-->
+                </div>
+                <!--//col-->
+            @endforeach
+
+
         </div><!--//row-->
     
     </div>

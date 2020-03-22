@@ -25,6 +25,7 @@ class CreatePortfoliosTable extends Migration
             $table->text('short_description')->nullable();
             $table->text('brief_description')->nullable();
             $table->unsignedBigInteger('testimonial_id')->nullable();
+            $table->boolean('is_featured')->default(true);
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
