@@ -44,8 +44,8 @@ class CreateProfilesTable extends Migration
             $table->string('my_longitude', 50)->nullable();
 
             //Portfolio page 
-            $table->string('portfolio_title', 50)->nullable()->after('my_longitude');
-            $table->text('portfolio_description', 300)->nullable()->after('portfolio_title');
+            $table->string('portfolio_title', 50)->nullable();
+            $table->text('portfolio_description', 300)->nullable();
             
             $table->timestamps();
         });

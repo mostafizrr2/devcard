@@ -1,7 +1,7 @@
 <header class="header text-center">
     <div class="force-overflow">
         <h1 class="blog-name pt-lg-4 mb-0">
-            <a href="{{ route('public.about') }}">{{ $profile->my_name }}</a>
+            <a href="{{ route('public.about') }}">{{ ($profile->my_name) ? $profile->my_name : "Demo Name" }}</a>
         </h1>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -14,19 +14,10 @@
             <div id="navigation" class="collapse navbar-collapse flex-column">
                 <div class="profile-section pt-3 pt-lg-0">
                     <img class="profile-image mb-3 rounded-circle mx-auto"
-                     src="{{ url('images/me1.jpg') }}" alt="image">
+                     src="{{ url('storage/profile_image', $profile->my_profile_image ) }}" alt="image">
 
                     <div class="bio text-center mb-3">
-
-                        <p class="mb-2">
-                            <i class="fa fa-phone mr-2"></i> {{ $profile->my_primary_phone }}
-                        </p>
-                        <p class="mb-2">
-                            <i class="fa fa-envelope mr-2"></i> {{ $profile->my_primary_email }}
-                        </p>
-                        <p class="mb-2">
-                            <i class="fa fa-location-arrow mr-2"></i> {{ $profile->my_street_address }}
-                        </p>
+                      {{ $profile->my_short_description }}
                     </div>
                     <!--//bio-->
                     <ul class="social-list list-inline py-2 mx-auto">
@@ -43,35 +34,35 @@
                 <!--//profile-section-->
 
                 <ul class="navbar-nav flex-column text-left">
-                    <li class="nav-item active">
+                    <li class="nav-item {{ setActive(['public.about'], 'active') }}">
                         <a class="nav-link" href="{{ route('public.about') }}">
                             <i class="fas fa-user fa-fw mr-2"></i>About Me
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ setActive(['public.portfolio'], 'active') }}">
                         <a class="nav-link" href="{{ route('public.portfolio') }}">
                             <i class="fas fa-laptop-code fa-fw mr-2"></i>Portfolio
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ setActive(['public.resume'], 'active') }}">
                         <a class="nav-link" href="{{ route('public.resume') }}">
                             <i class="fas fa-file-alt fa-fw mr-2"></i>Resume
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ setActive(['public.blog'], 'active') }}">
                         <a class="nav-link" href="{{ route('public.blog') }}">
                             <i class="fas fa-blog fa-fw mr-2"></i>Blog
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item {{ setActive(['public.services'], 'active') }}">
                         <a class="nav-link" href="{{ route('public.services') }}">
                             <i class="fas fa-briefcase fa-fw mr-2"></i>Services
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item {{ setActive(['public.about'], 'active') }}">
                         <a class="nav-link" href="{{ route('public.contact') }}">
                             <i class="fas fa-envelope-open-text fa-fw mr-2"></i>Contact
                         </a>

@@ -10,7 +10,7 @@
         <div class="profile-teaser media flex-column flex-lg-row">
 
             <div class="media-body">
-                <h2 class="name font-weight-bold mb-1">{{ $profile->my_name }}</h2>
+                <h2 class="name font-weight-bold mb-1">{{ ($profile->my_name) ? $profile->my_name : "Demo Name" }}</h2>
                 <div class="tagline mb-3">{{ $profile->my_title }}</div>
                 <div class="bio mb-4">
                     {{ $profile->my_brief_description }}
