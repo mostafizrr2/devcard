@@ -19,7 +19,7 @@ Route::get('/blog', 'PublicController@blog')->name('public.blog');
 Route::get('/contact', 'PublicController@contact')->name('public.contact');
 Route::get('/hire-me', 'PublicController@hire')->name('public.hire');
 Route::get('/article', 'PublicController@article')->name('public.article');
-Route::get('/project', 'PublicController@project')->name('public.project');
+Route::get('/project/{slug}', 'PublicController@project')->name('public.project');
 
 
 

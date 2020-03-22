@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Portfolio;
 use App\Work;
 use App\Profile;
 use App\Testimonial;
@@ -14,13 +15,14 @@ class PublicController extends Controller
     {
         $data['works'] = Work::where('status', true)->get();
         $data['testimonials'] = Testimonial::where('status', true)->latest()->get();
-        
+        $data['portfolios'] = Portfolio::where('status', true)->where('is_featured', true)->latest()->get();
         return view('public.about',$data);
     }
 
     public function portfolio()
     {
-        return view('public.portfolio');
+        $data['portfolios'] = Portfolio::where('status', true)->latest()->get();
+        return view('public.portfolio',$data);
     }
 
     public function services()
@@ -53,8 +55,16 @@ class PublicController extends Controller
         return view('public.article');
     }
 
-    public function project()
+    public function project($slug)
     {
-        return view('public.project');
+        $data['portfolio'] = Portfolio::with('testimonial')->where('slug', $slug)->first();
+
+        // dd($data['portfolio']->testimonial);
+
+        if(!$data['portfolio'])
+        {
+            abort(404);
+        }
+        return view('public.project',$data);
     }
 }
