@@ -71,6 +71,15 @@
                                     <label for="project_image">Project Image</label>
                                     <input type="file" class="form-control" name="project_image" id="project_image">
                                 </div>
+
+
+                                <div class="form-group">
+                                    <label>Project Category</label>
+                                    <select id="select" multiple  name="categories[]" class="custom-select">
+                                    </select>
+                                </div>
+
+
                                 <div class="form-group">
                                     <label>Project Tesimonila</label>
                                     <select name="testimonial_id" class="custom-select">
@@ -141,6 +150,17 @@
                 ' removeformat | help',
             menubar: false,
             default_link_target: "_blank"
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#select').select2({
+                tags: true,
+                placeholder: "Add categories..",
+                tokenSeparators: [',']
+            });
         });
     </script>
 @endpush
